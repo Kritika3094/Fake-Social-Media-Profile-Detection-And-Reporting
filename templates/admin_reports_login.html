@@ -1,0 +1,39 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Admin Authentication Required</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <style>
+    body { background:#0f0f10; color:#eee; font-family: Arial, sans-serif; }
+    .card { max-width:480px; margin:80px auto; padding:24px; background:#1d1d1f; border-radius:8px; box-shadow: 0 6px 18px rgba(0,0,0,0.6); }
+    h2 { margin-top:0; color:#4CAF50; }
+    input { width:100%; padding:10px; margin-top:8px; border-radius:4px; border:1px solid #333; background:#0f0f10; color:#fff; }
+    button { margin-top:12px; padding:10px 14px; border-radius:6px; border:1px solid #4CAF50; background:transparent; color:#4CAF50; cursor:pointer; }
+    .error { color:#ff6b6b; margin-top:8px; }
+    .note { color:#aaa; margin-top:12px; font-size:0.9rem; }
+    a.back { color:#4CAF50; text-decoration:none; display:inline-block; margin-top:12px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Admin Authentication</h2>
+    <p>Enter the admin password to view reports.</p>
+
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <form method="post" action="">
+      {% csrf_token %}
+      <input type="password" name="admin_password" placeholder="Admin password" autocomplete="current-password" />
+      <button type="submit">Authenticate</button>
+    </form>
+
+    <p class="note">Only the username <strong>admin</strong> with password <strong>admin123</strong> can access this page.</p>
+
+    <a class="back" href="{% url 'form' %}">← Back to Detection</a>
+  </div>
+</body>
+</html>

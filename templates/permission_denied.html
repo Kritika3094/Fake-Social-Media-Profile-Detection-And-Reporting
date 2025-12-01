@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Permission Denied</title>
+  <style>
+    body { background:#111; color:#ddd; font-family: Arial, sans-serif; text-align:center; padding:60px; }
+    .box { display:inline-block; padding:24px; background:#1a1a1a; border-radius:8px; }
+    a { color:#4CAF50; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Permission Denied</h1>
+    <p>You must be logged in as <strong>admin</strong> to view reports.</p>
+    <p><a href="{% url 'login' %}">Login</a> or <a href="{% url 'form' %}">Back to Detection</a></p>
+  </div>
+</body>
+</html>

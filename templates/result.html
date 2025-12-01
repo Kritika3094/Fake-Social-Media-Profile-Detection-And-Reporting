@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Results</title>
+</head>
+<body>
+    <h2>Prediction Results</h2>
+    <ul>
+        {% for key, value in predictions.items %}
+        <li>{{ key }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'form' %}">Go Back</a>
+</body>
+</html>

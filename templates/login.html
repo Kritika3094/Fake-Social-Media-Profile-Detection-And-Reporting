@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        /* Apply background image and full-page styling */
+        body {
+            background-image: url("{% static 'images/Hacker.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center the content vertically */
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+        }
+
+        /* Title Style with hover effect */
+        h2 {
+            font-size: 50px;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 30px; /* Add some space below the title */
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        h2:hover {
+            transform: scale(1.1); /* Slightly enlarge the title on hover */
+            color: #4CAF50; /* Change color on hover */
+        }
+
+        /* Navbar Style */
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #4CAF50;
+            text-decoration: underline;
+        }
+
+        /* Neumorphism effect on form container */
+        .form-container {
+            background: #1e1e1e; /* Dark background for the form */
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.6), 
+                        -8px -8px 16px rgba(255, 255, 255, 0.3);
+            width: 300px;
+            text-align: center;
+            opacity: 0.9;
+            margin-top: 20px; /* Adjust for better positioning */
+        }
+
+        /* Neumorphism effect for input fields and button */
+        input, button {
+            background: #333333;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 15px;
+            color: white;
+            font-size: 16px;
+            box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.3), 
+                        -6px -6px 12px rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        /* Hover effect for inputs and button */
+        input:hover, button:hover {
+            box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4), 
+                        -6px -6px 12px rgba(255, 255, 255, 0.3);
+        }
+
+        button {
+            background-color: #4CAF50;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        a:hover {
+            color: #a8a8a8;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <a href="{% url 'register' %}">Register Account</a>
+        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'reports_list' %}">My Reports</a>  <!-- Added My Reports link -->
+    </nav>
+
+    <!-- Title -->
+    <h2>User Login</h2>
+
+    <!-- Form Container -->
+    <div class="form-container">
+        <form method="post">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+</body>
+</html>
